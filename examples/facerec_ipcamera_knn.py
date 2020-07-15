@@ -203,7 +203,7 @@ if __name__ == "__main__":
             # Different resizing options can be chosen based on desired program runtime.
             # Image resizing for more stable streaming
             img = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
-            process_this_frame = process_this_frame + 1
+            process_this_frame += 1
             if process_this_frame % 30 == 0:
                 predictions = predict(img, model_path="trained_knn_model.clf")
             frame = show_prediction_labels_on_image(frame, predictions)

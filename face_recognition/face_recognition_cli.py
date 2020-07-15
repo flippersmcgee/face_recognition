@@ -69,11 +69,7 @@ def image_files_in_folder(folder):
 
 
 def process_images_in_process_pool(images_to_check, known_names, known_face_encodings, number_of_cpus, tolerance, show_distance):
-    if number_of_cpus == -1:
-        processes = None
-    else:
-        processes = number_of_cpus
-
+    processes = None if number_of_cpus == -1 else number_of_cpus
     # macOS will crash due to a bug in libdispatch if you don't use 'forkserver'
     context = multiprocessing
     if "forkserver" in multiprocessing.get_all_start_methods():
